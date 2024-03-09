@@ -73,13 +73,13 @@
         newRow.innerHTML = "<td style='text-align: center;'>" + pegawai.nama + "</td>" +
             "<td style='text-align: center;'>" + pegawai.jabatan + "</td>" +
             "<td style='text-align: center;'>" + pegawai.status + "</td>" +
-            "<td style='text-align: center;'>" + gajiPokok + "</td>" +
-            "<td style='text-align: center;'>" + tunjanganJabatan + "</td>" +
-            "<td style='text-align: center;'>" + bpjs + "</td>" +
-            "<td style='text-align: center;'>" + tunjanganKeluarga + "</td>";
+            "<td style='text-align: center;'>Rp. " + gajiPokok.toLocaleString() + "</td>" +
+            "<td style='text-align: center;'>Rp. " + tunjanganJabatan.toLocaleString() + "</td>" +
+            "<td style='text-align: center;'>Rp. " + bpjs.toLocaleString() + "</td>" +
+            "<td style='text-align: center;'>Rp. " + tunjanganKeluarga.toLocaleString() + "</td>";
 
         // Menambahkan total gaji ke dalam tabel
-        document.getElementById("totalGaji").getElementsByTagName("td")[1].innerHTML = totalGaji;
+        document.getElementById("totalGaji").getElementsByTagName("td")[1].innerHTML = "Rp. " + totalGaji.toLocaleString();
     </script>
 
 </body>
