@@ -31,6 +31,57 @@
         </tfoot>
     </table>
 
+    <script>
+        // Data pegawai
+        var pegawai = {
+            nama: "Ridwan",
+            jabatan: "manager",
+            status: "menikah",
+        };
+
+        // Menghitung gaji pokok
+        var gajiPokok;
+        switch (pegawai.jabatan) {
+            case "manager":
+                gajiPokok = 15000000; // 15 juta
+                break;
+            case "asisten manager":
+                gajiPokok = 10000000; // 10 juta
+                break;
+            case "staff":
+                gajiPokok = 5000000; // 5 juta
+                break;
+            default:
+                gajiPokok = 0;
+        }
+
+        // Menghitung tunjangan jabatan (15% dari gaji pokok)
+        var tunjanganJabatan = 0.15 * gajiPokok;
+
+        // Menghitung BPJS (10% dari gaji pokok)
+        var bpjs = 0.10 * gajiPokok;
+
+        // Menghitung tunjangan keluarga (20% dari gaji pokok jika menikah)
+        var tunjanganKeluarga = pegawai.status === "menikah" ? 0.20 * gajiPokok : 0;
+
+        // Menghitung total gaji
+        var totalGaji = gajiPokok + tunjanganJabatan + bpjs + tunjanganKeluarga;
+
+        // Menambahkan data pegawai ke dalam tabel
+        var dataPegawai = document.getElementById("dataPegawai");
+        var newRow = dataPegawai.insertRow();
+        newRow.innerHTML = "<td style='text-align: center;'>" + pegawai.nama + "</td>" +
+            "<td style='text-align: center;'>" + pegawai.jabatan + "</td>" +
+            "<td style='text-align: center;'>" + pegawai.status + "</td>" +
+            "<td style='text-align: center;'>" + gajiPokok + "</td>" +
+            "<td style='text-align: center;'>" + tunjanganJabatan + "</td>" +
+            "<td style='text-align: center;'>" + bpjs + "</td>" +
+            "<td style='text-align: center;'>" + tunjanganKeluarga + "</td>";
+
+        // Menambahkan total gaji ke dalam tabel
+        document.getElementById("totalGaji").getElementsByTagName("td")[1].innerHTML = totalGaji;
+    </script>
+
 </body>
 
 </html>
